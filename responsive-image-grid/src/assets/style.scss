@@ -1,4 +1,6 @@
 $title-back-color: rgba(128, 128, 128, 0.6);
+$media-m: "(max-width: 1200px)";
+$media-sm: "(max-width: 900px)";
 $media-s: "(max-width: 700px)";
 $font-family: "Lato", sans-serif;
 
@@ -55,7 +57,7 @@ $font-family: "Lato", sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
         a {
             font-weight: bold;
             font-size: 0;
@@ -70,8 +72,24 @@ $font-family: "Lato", sans-serif;
 .galery-grid-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
     .card-container {
-        width: 32%;
+        width: 23%;
+        height: 30vw;
+        @media #{$media-m} {
+            width: 30%;
+        }
+        @media #{$media-sm} {
+            width: 45%;
+        }
+    }
+    .image-container {
+        img {
+            height: 100%;
+        }
+    }
+    .user-name {
+        margin-bottom: 0;
     }
 }

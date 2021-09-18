@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <Images/>
+    <ImageGalery/>
   </div>
 </template>
 
 <script>
 import Images from './components/Images.vue'
+import ImageGalery from './pages/ImageGalery.vue'
 
 export default {
   name: 'App',
   components: {
-    Images
+    Images,
+    ImageGalery
   }
 }
 </script>
