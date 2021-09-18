@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <ImageGrid/>
+    <Images/>
   </div>
 </template>
 
 <script>
-import ImageGrid from './components/ImageGrid.vue'
+import Images from './components/Images.vue'
 
 export default {
   name: 'App',
   components: {
-    ImageGrid
+    Images
   }
 }
 </script>
