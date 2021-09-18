@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <div style="display:flex">
+      <h1 class="images-title active">IMAGES 
+        <span style='font-weight:300;font-size:24px;'>(variable sizes)</span>
+      </h1>
+      <h1 class="image-galery-title">GALERY
+        <span style='font-weight:300;font-size:24px;'>(same size images)</span>
+      </h1>
+    </div>
     <Images/>
     <ImageGalery/>
   </div>
@@ -14,6 +22,32 @@ export default {
   components: {
     Images,
     ImageGalery
+  },
+  mounted(){
+    
+    const imagesTitle=document.querySelector(".images-title")
+    const imageGaleryTitle=document.querySelector(".image-galery-title")
+    const differentSizeGalery=document.querySelector(".image-grid-container")
+    const sameSizeGalery=document.querySelector(".galery-grid-container")
+
+
+    imagesTitle.addEventListener("click", function() {
+      console.log('image')
+
+      imagesTitle.classList.add('active')
+      imageGaleryTitle.classList.remove('active')
+      differentSizeGalery.style.display='grid'
+      sameSizeGalery.style.display='none'
+
+    });
+
+    imageGaleryTitle.addEventListener("click", function() {
+      console.log('galery')
+      imageGaleryTitle.classList.add('active')
+      imagesTitle.classList.remove('active')
+      differentSizeGalery.style.display='none'
+      sameSizeGalery.style.display='flex'
+    });
   }
 }
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>IMAGES</h1>
     <div class="image-grid-container">
   
         <ImageRow v-for="images,i in imagesList" :key="i"

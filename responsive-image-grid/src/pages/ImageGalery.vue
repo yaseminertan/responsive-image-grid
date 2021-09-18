@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>IMAGE GALERY</h1>
     <div class="galery-grid-container">
   
         <ImageCard v-for="image,i in imagesList" :key="i"

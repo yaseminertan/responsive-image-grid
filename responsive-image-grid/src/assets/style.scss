@@ -9,10 +9,38 @@ $font-family: "Lato", sans-serif;
     text-align: center;
     margin-top: 60px;
 }
-
+.image-galery-title,
+.images-title {
+    cursor: pointer;
+    color: gray;
+    margin: auto;
+    margin-bottom: 20px;
+    position: relative;
+    transition: all ease-in-out 0.2s;
+    @media #{$media-s} {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.active {
+    color: #000;
+    &::after {
+        content: "";
+        width: 40%;
+        height: 1px;
+        border-bottom: 1px solid #000;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @media #{$media-s} {
+            width: 0;
+        }
+    }
+}
 .image-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    transition: all ease-in-out 0.2s;
 }
 
 .card-container {
@@ -33,6 +61,7 @@ $font-family: "Lato", sans-serif;
                 height: 30px;
                 a {
                     font-size: 16px;
+                    font-weight: 500;
                     .text-photo-by {
                         font-size: 12px;
                     }
@@ -64,15 +93,15 @@ $font-family: "Lato", sans-serif;
             color: #fff;
             text-decoration: none;
             cursor: pointer;
-            transition: all ease-in-out 0.2s;
         }
     }
 }
 
 .galery-grid-container {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: center;
+    transition: all ease-in-out 0.2s;
 
     .card-container {
         width: 23%;
