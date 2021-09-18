@@ -1,0 +1,62 @@
+$title-back-color: rgba(128, 128, 128, 0.6);
+$media-s: "(max-width: 700px)";
+$font-family: "Lato", sans-serif;
+
+#app {
+    font-family: $font-family;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-container {
+    position: relative;
+    margin: 10px;
+    &:hover {
+        .user-name {
+            height: 50px;
+            a {
+                font-size: 26px;
+            }
+        }
+        @media #{$media-s} {
+            .user-name {
+                height: 30px;
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .image-container {
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+    }
+    .user-name {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0;
+        background: $title-back-color;
+        transition: all ease-in-out 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+        a {
+            font-weight: bold;
+            font-size: 0;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all ease-in-out 0.2s;
+        }
+    }
+}

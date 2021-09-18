@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Images</h1>
+    <h1>IMAGES</h1>
     <div class="image-grid-container">
   
         <ImageGrid v-for="images,i in imagesList" :key="i"
@@ -43,9 +43,8 @@ export default {
                 'X-Requested-With': 'XMLHttpRequest',
             }
         })
-        .then(response =>{ 
+        .then(response =>{
             this.imagesList.push(response.data);
-            console.log(this.imagesList)
         })
         .catch(err =>{ console.log(err); return;});
         pageCount--;
@@ -56,9 +55,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.image-grid-container{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-}
-</style>
