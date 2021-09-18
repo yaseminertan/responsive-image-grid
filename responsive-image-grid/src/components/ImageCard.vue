@@ -1,11 +1,11 @@
 <template>
     <div class="card-container">
         <a :href="imageUrl" class="image-container">
-            <img :src="url"/>
+            <img v-lazy="url"/>
         </a>
 
         <div class="user-name">
-            <a :href="userProfileLink">{{userName}}</a>
+            <a :href="userProfileLink"><span class="text-photo-by">photo by: </span>{{userName}}</a>
         </div>
     </div>
 </template>

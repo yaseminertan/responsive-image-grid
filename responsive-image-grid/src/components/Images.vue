@@ -3,7 +3,7 @@
     <h1>IMAGES</h1>
     <div class="image-grid-container">
   
-        <ImageGrid v-for="images,i in imagesList" :key="i"
+        <ImageRow v-for="images,i in imagesList" :key="i"
           :imageList='images' 
         />
  
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import ImageGrid from './ImageGrid.vue'
+import ImageRow from './ImageRow.vue'
 
 export default {
   name: 'Images',
   components: {
-    ImageGrid
+    ImageRow
   },
   data(){
     return {
