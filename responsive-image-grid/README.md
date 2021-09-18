@@ -1,4 +1,6 @@
 # responsive-image-grid
+# project's folder
+cd responsive-image-grid
 
 ## Project setup
 ```

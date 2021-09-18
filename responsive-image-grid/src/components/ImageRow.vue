@@ -13,7 +13,7 @@
 import ImageCard from './ImageCard.vue'
 
 export default {
-  name: 'ImageGrid',
+  name: 'ImageRow',
   components: {
     ImageCard
   },

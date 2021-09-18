@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div class="image-grid-container">
+    <div class="galery-grid-container">
   
-        <ImageRow v-for="images,i in imagesList" :key="i"
-          :imageList='images' 
+        <ImageCard v-for="image,i in imagesList" :key="i"
+            :url='image.urls.regular' 
+            :imageUrl='image.links.html'
+            :userProfileLink='image.user.links.html'
+            :userName='image.user.first_name'
         />
  
     </div>
@@ -13,12 +16,12 @@
 </template>
 
 <script>
-import ImageRow from './ImageRow.vue'
+import ImageCard from './ImageCard.vue'
 
 export default {
-  name: 'Images',
+  name: 'ImageGalery',
   components: {
-    ImageRow
+    ImageCard
   },
   data(){
     return {
@@ -29,7 +32,7 @@ export default {
   methods:{
     getImages(){
       const axios = require('axios').default;
-      let pageCount=3;
+      let pageCount=4;
 
       do{
         let getUrl='https://api.unsplash.com/photos?page='+pageCount+'&client_id=iSUqmKX0n0RdggjIvapCQ39F9Pdq_DGzEL8C3YmOERA'
@@ -43,7 +46,10 @@ export default {
             }
         })
         .then(response =>{
-            this.imagesList.push(response.data);
+            response.data.forEach(image => {
+                this.imagesList.push(image);
+            });
+            
         })
         .catch(err =>{ console.log(err); return;});
         pageCount--;

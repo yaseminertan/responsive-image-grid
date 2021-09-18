@@ -1,12 +1,9 @@
 <template>
   <div>
-    <div class="galery-grid-container">
+    <div class="image-grid-container">
   
-        <ImageCard v-for="image,i in imagesList" :key="i"
-            :url='image.urls.regular' 
-            :imageUrl='image.links.html'
-            :userProfileLink='image.user.links.html'
-            :userName='image.user.first_name'
+        <ImageRow v-for="images,i in imagesList" :key="i"
+          :imageList='images' 
         />
  
     </div>
@@ -16,12 +13,12 @@
 </template>
 
 <script>
-import ImageCard from '../components/ImageCard.vue'
+import ImageRow from './ImageRow.vue'
 
 export default {
-  name: 'ImageGalery',
+  name: 'ImageGrid',
   components: {
-    ImageCard
+    ImageRow
   },
   data(){
     return {
@@ -46,10 +43,7 @@ export default {
             }
         })
         .then(response =>{
-            response.data.forEach(image => {
-                this.imagesList.push(image);
-            });
-            
+            this.imagesList.push(response.data);
         })
         .catch(err =>{ console.log(err); return;});
         pageCount--;

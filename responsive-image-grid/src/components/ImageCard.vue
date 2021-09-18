@@ -11,7 +11,7 @@
 </template>
 <script>
     export default {
-        name: 'Images',
+        name: 'ImageCard',
         props: {
             url: {
                 type: String,

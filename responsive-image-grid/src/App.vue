@@ -8,41 +8,33 @@
         <span style='font-weight:300;font-size:24px;'>(same size images)</span>
       </h1>
     </div>
-    <Images/>
+    <ImageGrid/>
     <ImageGalery/>
   </div>
 </template>
 
 <script>
-import Images from './components/Images.vue'
-import ImageGalery from './pages/ImageGalery.vue'
+import ImageGrid from './components/ImageGrid.vue'
+import ImageGalery from './components/ImageGalery.vue'
 
 export default {
   name: 'App',
   components: {
-    Images,
+    ImageGrid,
     ImageGalery
   },
   mounted(){
-    
     const imagesTitle=document.querySelector(".images-title")
     const imageGaleryTitle=document.querySelector(".image-galery-title")
     const differentSizeGalery=document.querySelector(".image-grid-container")
     const sameSizeGalery=document.querySelector(".galery-grid-container")
-
-
     imagesTitle.addEventListener("click", function() {
-      console.log('image')
-
       imagesTitle.classList.add('active')
       imageGaleryTitle.classList.remove('active')
       differentSizeGalery.style.display='grid'
       sameSizeGalery.style.display='none'
-
     });
-
     imageGaleryTitle.addEventListener("click", function() {
-      console.log('galery')
       imageGaleryTitle.classList.add('active')
       imagesTitle.classList.remove('active')
       differentSizeGalery.style.display='none'
