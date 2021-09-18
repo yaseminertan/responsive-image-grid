@@ -3,7 +3,12 @@
     <h1>Images</h1>
     <div class="image-grid-container">
       <div v-for="image,i in imageList" :key="i">
-        <ImageCard :url='image.urls.regular'/>
+        <ImageCard 
+          :url='image.urls.regular' 
+          :imageUrl='image.links.html'
+          :userProfileLink='image.user.links.html'
+          :userName='image.user.first_name'
+        />
       </div>
     </div>
     
@@ -38,7 +43,7 @@ export default {
           }
       })
       .then(response =>{ 
-        this.imageList=response.data;
+        this.imageList=this.imageList.concat(response.data);
       })
       .catch(err => console.log(err));
     },
